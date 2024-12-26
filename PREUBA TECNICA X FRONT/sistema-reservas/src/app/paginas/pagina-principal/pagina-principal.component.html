@@ -1,0 +1,23 @@
+<h1>Reservas</h1>
+<button (click)="abrirFormulario()">Nueva Reserva</button>
+<table>
+  <thead>
+    <tr>
+      <th>Espacio</th>
+      <th>Fecha y Hora de Inicio</th>
+      <th>Fecha y Hora de Fin</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reserva of reservas">
+      <td>{{ reserva.idSpace }}</td>
+      <td>{{ reserva.starTime }}</td>
+      <td>{{ reserva.endTime }}</td>
+      <td>
+        <button (click)="abrirFormulario(reserva)">Editar</button>
+        <button (click)="cancelarReserva(reserva.id)">Cancelar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

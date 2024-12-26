@@ -1,0 +1,29 @@
+<h2>{{ data.id ? 'Editar' : 'Crear' }} Reserva</h2>
+<form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
+  <label for="idSpace">Espacio:</label>
+  <input id="idSpace" formControlName="idSpace">
+  <div *ngIf="reservaForm.controls['idSpace'].invalid && reservaForm.controls['idSpace'].touched">
+    Espacio es requerido.
+  </div>
+
+  <label for="starTime">Hora de Inicio:</label>
+  <input id="starTime" type="datetime-local" formControlName="starTime">
+  <div *ngIf="reservaForm.controls['starTime'].invalid && reservaForm.controls['starTime'].touched">
+    Hora de inicio es requerida.
+  </div>
+
+  <label for="endTime">Hora de Fin:</label>
+  <input id="endTime" type="datetime-local" formControlName="endTime">
+  <div *ngIf="reservaForm.controls['endTime'].invalid && reservaForm.controls['endTime'].touched">
+    Hora de fin es requerida.
+  </div>
+
+  <label for="idUser">ID Usuario:</label>
+  <input id="idUser" formControlName="idUser">
+  <div *ngIf="reservaForm.controls['idUser'].invalid && reservaForm.controls['idUser'].touched">
+    ID Usuario es requerido.
+  </div>
+
+  <button type="submit" [disabled]="reservaForm.invalid">{{ data.id ? 'Actualizar' : 'Crear' }}</button>
+  <button type="button" (click)="onCancel()">Cancelar</button>
+</form>
